@@ -1,5 +1,5 @@
 # pico_binary_counter
-8-bit binary counter for the Raspberry Pi Pico using 8 LEDs and a button
+8-bit binary counter for the Raspberry Pi Pico using 8 LEDs and a button, written in C using the Pico SDK
 ![Raspberry Pi Pico on breadboard, with connected LEDs and a button showing the project working](https://github.com/wbr8/pico_binary_counter/blob/main/example_setup.JPEG?raw=true)
 
 # Configure
