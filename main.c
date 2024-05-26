@@ -30,15 +30,18 @@ int main()
         // get input from button 
         if (gpio_get(BUTTON)) {
             counter++;    // increment the counter value
-            sleep_ms(150);
-        }
+            
+            for (int i = 0; i < 8; i++) {
+                bits[i] = extract_bit_for_position(counter, i);    // sets current bit value to extracted bit from counter variable for correct position
+            }
 
-        for (int i = 0; i < 8; i++) {
-            bits[i] = extract_bit_for_position(counter, i);    // sets current bit value to extracted bit from counter variable for correct position
-        }
+            for (int i = 0; i < 8; i++) {
+                gpio_put(LED_PIN[i], bits[i]);    // sets LED state to the bit array
+            }
 
-        for (int i = 0; i < 8; i++) {
-            gpio_put(LED_PIN[i], bits[i]);    // sets LED state to the bit array
+            while (gpio_get(BUTTON)) {
+                sleep_ms(10);    // waits until button is released before new input can be accepted
+            }
         }
     }
 }
