@@ -1,6 +1,7 @@
 #include "pico/stdlib.h"
 
-char extract_bit_for_position(uint8_t num, int pos) {
+char extract_bit_for_position(uint8_t num, int pos)
+{
     char bit = (num >> pos) & 0b00000001;   // performs right bit-shift by set number and AND operates on it with 1, as to extract the current bit in the position of the number
     return bit;
 }
